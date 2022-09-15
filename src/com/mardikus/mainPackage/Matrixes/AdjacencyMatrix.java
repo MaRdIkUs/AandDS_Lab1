@@ -16,12 +16,13 @@ public class AdjacencyMatrix extends Matrix {
 
     public IncidenceMatrix convertToIncidenceMatrix(){
         int[][] matrix = new int[this.matrix.length][this.matrix.length];
-        System.arraycopy(this.matrix,0,matrix,0,matrix.length);
+        for(int i = 0;i<matrix.length;i++)
+            System.arraycopy(this.matrix[i],0,matrix[i],0,matrix[i].length);
         int edgesCount = edgesCountCalculating();
         int[][] newMatrix = new int[this.matrix.length][edgesCount];
         int nowEdge = 0;
-        for(int i = 0;i< matrix.length;i++)
-            for(int i1 = 0;i1< matrix[i].length;i1++)
+        for(int i = 0;i < matrix.length;i++)
+            for(int i1 = 0;i1 < matrix[i].length;i1++)
                 for(int l = 0;l<matrix[i][i1];l++) {
                     newMatrix[i][nowEdge]++;
                     newMatrix[i1][nowEdge++]++;
