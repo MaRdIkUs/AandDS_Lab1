@@ -1,14 +1,16 @@
 package com.mardikus.mainPackage.Lists;
 
+import java.util.ArrayList;
+
 abstract class List {
 
     Line[] lines;
 
-    private static class Line{
+    protected static class Line{
         private final int key;
-        private final int[] values;
+        private final ArrayList<Integer> values;
 
-        Line(int key,int[] value){
+        Line(int key, ArrayList<Integer> value){
             this.key = key;
             this.values = value;
         }
@@ -16,7 +18,7 @@ abstract class List {
         public int getKey(){
             return key;
         }
-        public int[] getValues(){
+        public ArrayList<Integer> getValues(){
             return values;
         }
 

@@ -7,9 +7,6 @@ public class IncidenceMatrix extends Matrix{
         this.matrix = matrix;
     }
     public ListOfIncidentEdges convertToListOfIncidentEdges(){
-        for(int[] i1:matrix)
-            for(int i:i1){
-                
-            }
+        return new ListOfIncidentEdges(matrix);
     }
 }

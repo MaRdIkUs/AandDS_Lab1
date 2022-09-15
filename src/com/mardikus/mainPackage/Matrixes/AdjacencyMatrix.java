@@ -2,7 +2,7 @@ package com.mardikus.mainPackage.Matrixes;
 
 public class AdjacencyMatrix extends Matrix {
 
-    AdjacencyMatrix(int[][] matrix){
+    public AdjacencyMatrix(int[][] matrix){
         this.matrix = matrix;
     }
 
@@ -23,8 +23,8 @@ public class AdjacencyMatrix extends Matrix {
         for(int i = 0;i< matrix.length;i++)
             for(int i1 = 0;i1< matrix[i].length;i1++)
                 for(int l = 0;l<matrix[i][i1];l++) {
-                    newMatrix[nowEdge][i]++;
-                    newMatrix[nowEdge++][i1]++;
+                    newMatrix[i][nowEdge]++;
+                    newMatrix[i1][nowEdge++]++;
                     matrix[i1][i]--;
                 }
         return new IncidenceMatrix(newMatrix);
