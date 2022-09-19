@@ -8,15 +8,15 @@ import com.mardikus.mainPackage.Matrixes.IncidenceMatrix;
 import java.io.*;
 import java.util.Optional;
 
-public class StreamWorking {
+public final class StreamWorking {
     public static Optional<String[]> readFromFile(String fileName){
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             return Optional.of(splitTextFromReader(reader));
         } catch (FileNotFoundException e) {
             System.out.println(e.hashCode());
+            return Optional.empty();
         }
-        return Optional.empty();
     }
 
     public static boolean writeMatrixToFIle(String fileName, AdjacencyMatrix matrix){

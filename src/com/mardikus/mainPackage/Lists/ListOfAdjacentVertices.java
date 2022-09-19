@@ -11,23 +11,39 @@ public class ListOfAdjacentVertices extends List{
     public String graphTraversalInDepth(int vertex){
         ArrayList<Integer> result = new ArrayList<>();
         result.add(--vertex);
-        for(int i = 0;i>-1;i--){
+        for(int i = 0;i>-1;i--)
             for(int i1:lines[result.get(i)].getValues()) {
                 boolean isFind = false;
-                    for (int i2 : result){
+                    for (int i2 : result)
                         if (i2 == i1) {
                             isFind = true;
                             break;
                         }
-                    }
                 if(!isFind) {
                     result.add(i1);
                     i = result.size();
                     break;
                 }
             }
+        return verticesToString(result);
+    }
 
-        }
+    public String graphTraversalInLength(int vertex) {
+        ArrayList<Integer> result = new ArrayList<>();
+        result.add(--vertex);
+        for(int i = 0;i>-1;i--)
+            for(int i1:lines[result.get(i)].getValues()) {
+                boolean isFind = false;
+                for (int i2 : result)
+                    if (i2 == i1) {
+                        isFind = true;
+                        break;
+                    }
+                if(!isFind) {
+                    result.add(i1);
+                    i = result.size();
+                }
+            }
         return verticesToString(result);
     }
 
